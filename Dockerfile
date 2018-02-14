@@ -8,4 +8,6 @@ COPY /rpm .
 RUN alien -i oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm
 ENV LD_LIBRARY_PATH=/usr/lib/oracle/12.2/client64/lib
 RUN ln -s $LD_LIBRARY_PATH/libclntsh.so.12.1 $LD_LIBRARY_PATH/libclntsh.so \
-    && ln -s $LD_LIBRARY_PATH/libocci.so.12.1 $LD_LIBRARY_PATH/libocci.so
+    && ln -s $LD_LIBRARY_PATH/libocci.so.12.1 $LD_LIBRARY_PATH/libocci.so \
+    && cd .. \
+    && rm -rf /oracleoci
